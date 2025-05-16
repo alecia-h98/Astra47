@@ -10,6 +10,7 @@ import Nav from '../Nav/Nav';
 import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import GalleryPage from '../GalleryPage/GalleryPage';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>EDA Solo Project</h1>
+        <h1>_Astra47</h1>
         <Nav />
       </header>
       <main>
@@ -58,6 +59,7 @@ function App() {
               )
             }
           />
+          <Route path="/gallery"element= {<GalleryPage />} />
           <Route 
             exact path="/about"
             element={

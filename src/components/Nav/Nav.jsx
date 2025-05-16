@@ -31,6 +31,9 @@ function Nav() {
       }
       {/* Show these links regardless of auth status: */}
         <li>
+          <NavLink to="/gallery">Gallery</NavLink>
+        </li>
+        <li>
           <NavLink to="/about">About</NavLink>
         </li>
       </ul>
