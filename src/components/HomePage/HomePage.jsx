@@ -5,6 +5,9 @@ function HomePage() {
   const user = useStore((state) => state.user);
   const logOut = useStore((state) => state.logOut);
 
+
+
+
   return (
     <>
       <h2>Home Page</h2>
@@ -14,7 +17,7 @@ function HomePage() {
       </button>
     </>
   );
-}
+};
 
 
 export default HomePage;

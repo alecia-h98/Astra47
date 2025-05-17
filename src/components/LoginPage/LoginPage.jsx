@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import useStore from '../../zustand/store';
+import { useGlitch } from 'react-powerglitch';
 
 
 function LoginPage() {
@@ -8,6 +9,7 @@ function LoginPage() {
   const logIn = useStore((state) => state.logIn)
   const errorMessage = useStore((state) => state.authErrorMessage);
   const setAuthErrorMessage = useStore((state) => state.setAuthErrorMessage);
+  const glitch = useGlitch();
 
   useEffect(() => {
     // Clear the auth error message when the component unmounts:
@@ -27,7 +29,7 @@ function LoginPage() {
 
   return (
     <>
-      <h2>Login Page</h2>
+      <h2 className="glitch" data-text='text'>Login Page</h2>
       <form onSubmit={handleLogIn}>
         <label htmlFor="username">Username:</label>
         <input

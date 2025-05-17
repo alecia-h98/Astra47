@@ -10,12 +10,14 @@ import Nav from '../Nav/Nav';
 import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import GalleryPage from '../GalleryPage/GalleryPage';
+import GalleryPage from '../Photos/Photos';
+import { useGlitch } from 'react-powerglitch';
 
 
 function App() {
   const user = useStore((state) => state.user);
   const fetchUser = useStore((state) => state.fetchUser);
+  const glitch = useGlitch();
 
   useEffect(() => {
     fetchUser();
@@ -24,7 +26,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>_Astra47</h1>
+        <h1><span ref={glitch.ref}>_Astra47</span></h1>
         <Nav />
       </header>
       <main>

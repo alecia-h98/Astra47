@@ -2,7 +2,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 // GET route to fetch all photos
-router.get('/photos', (req, res) => {
+router.get('/videos', (req, res) => {
     const queryText = 'SELECT * FROM "photos" ORDER BY "id" DESC;';
 });
 

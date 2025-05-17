@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import useStore from '../../zustand/store';
+import { useGlitch } from 'react-powerglitch';
 
 
 function RegisterPage() {
@@ -16,6 +17,8 @@ function RegisterPage() {
     }
   }, [])
 
+ const glitch = useGlitch();
+
   const handleRegister = (event) => {
     event.preventDefault();
 
@@ -27,7 +30,7 @@ function RegisterPage() {
 
   return (
     <>
-      <h2>Register Page</h2>
+      <h2><span ref={glitch.ref}>Register Page</span></h2>
       <form onSubmit={handleRegister}>
         <label htmlFor="username">Username:</label>
         <input
