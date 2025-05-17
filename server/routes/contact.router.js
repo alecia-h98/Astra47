@@ -18,6 +18,16 @@ router.get('/requests', rejectUnauthenticated, (req, res) => {
 });
 
 // archive contact messages by ID
+router.put('/requests', rejectUnauthenticated, (req, res) => {
+    const { id } = req.body;
+    const query = `UPDATE "contact" SET "is_archived" = true WHERE  "is_archived" = false AND "id" = $1;`;
+    pool.query(query, [id])
+        .then(() => res.sendStatus(200))
+        .catch((err) => {
+            console.error('Error archiving contact request:', err);
+            res.sendStatus(500);
+        });
+});
 
 // PUT route to update the status of a contact request by ID
 router.put('/contact', (req, res) => {
