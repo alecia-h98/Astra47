@@ -41,7 +41,7 @@ function Nav() {
           <NavLink to="/about">About</NavLink>
         </li>
         <li className="glitch" data-text='text'>
-          text
+          <NavLink to="/contact">Contact</NavLink>
         </li>
       </ul>
     </nav>

@@ -12,22 +12,29 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import PhotosPage from '../PhotosPage/PhotosPage';
 import VideosPage from '../VideosPage/VideosPage';
+import ContactPage from '../ContactPage/ContactPage';
 import { useGlitch } from 'react-powerglitch';
-
+import { useNavigate } from 'react-router-dom';
 
 function App() {
   const user = useStore((state) => state.user);
   const fetchUser = useStore((state) => state.fetchUser);
   const glitch = useGlitch();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     fetchUser();
   }, [fetchUser]);
 
+  const homepage = (event) => {
+    navigate(`/`)
+  };
+
   return (
     <>
       <header>
-        <h1><span ref={glitch.ref}>_Astra47</span></h1>
+        <h1 onClick={homepage} ><span ref={glitch.ref}>_Astra47</span></h1>
         <Nav />
       </header>
       <main>
@@ -42,12 +49,12 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/photos" element= {<PhotosPage />} />
           <Route path="/videos" element= {<VideosPage />} />
-          
+          <Route path="/contact" element= {<ContactPage />} />
           <Route 
             exact path="/about"
             element={
               <>
-                <h2 className="glitch" data-text='text'>AboutPage</h2>
+                <h2 className="glitch" data-text='text'>AboutMe</h2>
                 <p>
                   Intelligence doesn’t seem like an aspect of personal character, and it isn’t.
                   Coincidentally, great intelligence is only loosely connected to being a good programmer.
