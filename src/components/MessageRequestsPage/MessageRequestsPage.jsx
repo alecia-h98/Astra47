@@ -12,7 +12,15 @@ function MessageRequestsPage() {
   return (
     <>
       <h2 className="glitch" data-text='text'>Contact Requests:</h2>
-
+      {/* <section className='message-requests'>
+        {user.messageRequests.map((request) => (
+          <div className='message-request' key={request.id}>
+            <img src={request.profilePicture} alt={request.name} />
+            <h3>{request.name}</h3>
+            <button onClick={() => request.accept()}>Accept</button>
+            <button onClick={() => request.decline()}>Decline</button>
+          </div>
+        ))} */}
 
     </>
   );
