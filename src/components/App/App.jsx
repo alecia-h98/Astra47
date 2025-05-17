@@ -13,6 +13,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import PhotosPage from '../PhotosPage/PhotosPage';
 import VideosPage from '../VideosPage/VideosPage';
 import ContactPage from '../ContactPage/ContactPage';
+import MessageRequestsPage from '../MessageRequestsPage/MessageRequestsPage';
 import { useGlitch } from 'react-powerglitch';
 import { useNavigate } from 'react-router-dom';
 
@@ -50,6 +51,8 @@ function App() {
           <Route path="/photos" element= {<PhotosPage />} />
           <Route path="/videos" element= {<VideosPage />} />
           <Route path="/contact" element= {<ContactPage />} />
+          <Route path="/contact/requests" element= {<MessageRequestsPage />} />
+
           <Route 
             exact path="/about"
             element={

@@ -16,6 +16,16 @@ CREATE TABLE "user" (
   "updated_at" TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+CREATE TABLE contact (
+    id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name character varying NOT NULL,
+    email character varying NOT NULL,
+    message character varying(1000) NOT NULL,
+    "timeSent" date NOT NULL,
+    responded boolean DEFAULT false,
+    is_archived boolean DEFAULT false
+);
+
 
 -------------------------------------------------------
 --------------------------------------------------

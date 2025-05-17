@@ -25,7 +25,7 @@ function Nav() {
         user.id && (
           <>
             <li className="glitch" data-text='text'>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/contact/requests">MessageReq</NavLink>
             </li>
           </>
         )

@@ -15,6 +15,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const photoRouter = require('./routes/photos.router');
 const videoRouter = require('./routes/videos.router');
+const contactRouter = require('./routes/contact.router');
 
 // Apply middleware:
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/photos', photoRouter);
 app.use('/api/videos', videoRouter);
+app.use('/api/contact', contactRouter);
 
 // Start the server:
 app.listen(PORT, () => {

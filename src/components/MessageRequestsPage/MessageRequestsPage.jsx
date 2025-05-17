@@ -3,7 +3,7 @@ import { useGlitch } from 'react-powerglitch';
 import React from 'react';
 import { useState } from 'react';
 
-function ContactPage() {
+function MessageRequestsPage() {
   const user = useStore((state) => state.user);
   const logOut = useStore((state) => state.logOut);
   const glitch = useGlitch();
@@ -11,7 +11,7 @@ function ContactPage() {
 
   return (
     <>
-      <h2 className="glitch" data-text='text'>ContactMe</h2>
+      <h2 className="glitch" data-text='text'>Contact Requests:</h2>
 
 
     </>
@@ -19,4 +19,4 @@ function ContactPage() {
 }
 
 
-export default ContactPage;
+export default MessageRequestsPage;
