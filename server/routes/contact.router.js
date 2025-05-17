@@ -17,7 +17,7 @@ router.get('/requests', rejectUnauthenticated, (req, res) => {
     })
 });
 
-// DELETE route to delete a photo by ID
+// archive contact messages by ID
 
 // PUT route to update the status of a contact request by ID
 router.put('/contact', (req, res) => {
