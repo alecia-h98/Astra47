@@ -10,7 +10,7 @@ function HomePage() {
 
   return (
     <>
-      <h2 className="glitch" data-text='text'>Home Page</h2>
+      <h2 className="glitch" data-text='text'>HomePage</h2>
       {user.id ? (
         <>
         <p>Welcome back {user.username}!</p>
