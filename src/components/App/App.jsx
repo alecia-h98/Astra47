@@ -34,33 +34,11 @@ function App() {
           <Route 
             exact path="/"
             element={
-              user.id ? (
                 <HomePage /> // Render HomePage for authenticated user.
-              ) : (
-                <Navigate to="/login" replace /> // Redirect unauthenticated user.
-              )
             }
           />
-          <Route 
-            exact path="/login"
-            element={
-              user.id ? (
-                <Navigate to="/" replace /> // Redirect authenticated user.
-              ) : (
-                <LoginPage /> // Render LoginPage for unauthenticated user.
-              )
-            }
-          />
-          <Route 
-            exact path="/registration"
-            element={
-              user.id ? (
-                <Navigate to="/" replace /> // Redirect authenticated user.
-              ) : (
-                <RegisterPage /> // Render RegisterPage for unauthenticated user.
-              )
-            }
-          />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/gallery"element= {<GalleryPage />} />
           <Route 
             exact path="/about"
