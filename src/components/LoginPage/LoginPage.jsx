@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import useStore from '../../zustand/store';
 import { useGlitch } from 'react-powerglitch';
+import { useNavigate } from 'react-router-dom';
 
 
 function LoginPage() {
@@ -9,6 +10,7 @@ function LoginPage() {
   const logIn = useStore((state) => state.logIn)
   const errorMessage = useStore((state) => state.authErrorMessage);
   const setAuthErrorMessage = useStore((state) => state.setAuthErrorMessage);
+  const navigate = useNavigate();
   const glitch = useGlitch();
 
   useEffect(() => {
@@ -25,6 +27,9 @@ function LoginPage() {
       username: username,
       password: password,
     })
+
+    navigate('/#/');
+
   };
 
   return (

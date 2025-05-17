@@ -12,6 +12,8 @@ function ContactPage() {
   const [emailInput, setEmailInput] = useState('');
   const [messageInput, setMessageInput] = useState('');
 
+  const addContactMessage = useStore((state) => state.addContactMessage);
+
   const formHandler = (event) => {
     event.preventDefault();
 
@@ -21,7 +23,9 @@ function ContactPage() {
       message: messageInput,
     }
 
-    console.log(newMessage);
+    console.log('New message console:', newMessage);
+
+    addContactMessage(newMessage);
 
     setNameInput('');
     setEmailInput('');

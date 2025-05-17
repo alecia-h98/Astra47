@@ -12,8 +12,18 @@ const createContactSlice = (set, get) => ({
         }
     },
 
-    addContactMessage: async 
+    // Function to add a new contact message
+    addContactMessage: async (newMessage) => {
+        try {
+            await axios.post(`/api/contact`, newMessage);
+        } catch (error) {
+            console.log('Error adding contact message:', error);
+        }
+    },
 
+    // Function to archive a contact message
+
+    // Function to toggle the responded status of a contact message
 
 });
 
