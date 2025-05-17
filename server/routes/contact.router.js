@@ -22,9 +22,8 @@ router.put('/contact/requests/:id', (req, res) => {
 });
 
 // POST route to add a new contact request
-// ****** This route is not working yet, because of the missing time portion of the contact table.
 router.post('/contact', (req, res) => {
-    const queryText = `INSERT INTO "contact" ("name", "email", "message") VALUES ($1, $2, $3);`;
+    const queryText = `INSERT INTO "contact" ("name", "email", "message", "day_sent") VALUES ($1, $2, $3, CURRENT_DATE);`;
     const queryValues = [req.body.name, req.body.email, req.body.message];
     pool.query(queryText, queryValues)
         .then(() => res.sendStatus(201))
