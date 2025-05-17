@@ -10,7 +10,8 @@ import Nav from '../Nav/Nav';
 import HomePage from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import GalleryPage from '../Photos/Photos';
+import PhotosPage from '../PhotosPage/PhotosPage';
+import VideosPage from '../VideosPage/VideosPage';
 import { useGlitch } from 'react-powerglitch';
 
 
@@ -39,12 +40,14 @@ function App() {
           />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/gallery"element= {<GalleryPage />} />
+          <Route path="/photos" element= {<PhotosPage />} />
+          <Route path="/videos" element= {<VideosPage />} />
+          
           <Route 
             exact path="/about"
             element={
               <>
-                <h2>About Page</h2>
+                <h2 className="glitch" data-text='text'>AboutPage</h2>
                 <p>
                   Intelligence doesn’t seem like an aspect of personal character, and it isn’t.
                   Coincidentally, great intelligence is only loosely connected to being a good programmer.

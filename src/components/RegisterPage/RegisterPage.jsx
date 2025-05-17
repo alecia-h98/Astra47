@@ -30,7 +30,7 @@ function RegisterPage() {
 
   return (
     <>
-      <h2><span ref={glitch.ref}>Register Page</span></h2>
+      <h2 className="glitch" data-text='text'>RegisterPage</h2>
       <form onSubmit={handleRegister}>
         <label htmlFor="username">Username:</label>
         <input

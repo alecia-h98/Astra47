@@ -10,11 +10,15 @@ function HomePage() {
 
   return (
     <>
-      <h2>Home Page</h2>
-      <p>Welcome back {user.username}!</p>
-      <button onClick={logOut}>
-        Log Out
-      </button>
+      <h2 className="glitch" data-text='text'>Home Page</h2>
+      {user.id ? (
+        <>
+        <p>Welcome back {user.username}!</p>
+        <button onClick={logOut}>
+          Log Out
+        </button>
+        </>) : (<p>Welcome to Astra47!</p>)}
+
     </>
   );
 };

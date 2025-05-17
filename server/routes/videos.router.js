@@ -1,4 +1,5 @@
 const pool = require('../modules/pool');
+const express = require('express');
 const router = express.Router();
 
 // GET route to fetch all photos

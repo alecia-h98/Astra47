@@ -32,7 +32,10 @@ function Nav() {
       }
       {/* Show these links regardless of auth status: */}
         <li className="glitch" data-text='text'>
-          <NavLink to="/gallery">Gallery</NavLink>
+          <NavLink to="/photos">Photos</NavLink>
+        </li>
+        <li className="glitch" data-text='text'>
+          <NavLink to="/videos">Videos</NavLink>
         </li>
         <li className="glitch" data-text='text'>
           <NavLink to="/about">About</NavLink>
