@@ -45,7 +45,7 @@ router.put('/requests', rejectUnauthenticated, (req, res) => {
 });
 
 // POST route to add a new contact request
-router.post('/contact', (req, res) => {
+router.post('/', (req, res) => {
     const queryText = `INSERT INTO "contact" ("name", "email", "message", "day_sent") VALUES ($1, $2, $3, CURRENT_DATE);`;
     const queryValues = [req.body.name, req.body.email, req.body.message];
     pool.query(queryText, queryValues)
