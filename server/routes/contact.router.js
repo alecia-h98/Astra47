@@ -18,7 +18,7 @@ router.get('/requests', rejectUnauthenticated, (req, res) => {
 });
 
 // archive contact messages by ID
-router.put('/requests', rejectUnauthenticated, (req, res) => {
+router.put('/requests/arc', rejectUnauthenticated, (req, res) => {
     const { id } = req.body;
     const query = `UPDATE "contact" SET "is_archived" = true WHERE  "is_archived" = false AND "id" = $1;`;
     pool.query(query, [id])
@@ -30,13 +30,16 @@ router.put('/requests', rejectUnauthenticated, (req, res) => {
 });
 
 // PUT route to update the status of a contact request by ID
-router.put('/contact', (req, res) => {
-    const queryText = `UPDATE "contact" SET "status" = $1 WHERE "id" = $2;`;
-    const queryValues = [req.body.status, req.params.id];
-    pool.query(queryText, queryValues)
+router.put('/requests', rejectUnauthenticated, (req, res) => {
+    const { id } = req.body;
+    const query = `UPDATE "contact"
+       SET "responded" = NOT "responded"
+       WHERE id = $1
+       RETURNING *;`;
+    pool.query(query, [id])
         .then(() => res.sendStatus(200))
         .catch((err) => {
-            console.error('Error updating contact request:', err);
+            console.error('Error archiving contact request:', err);
             res.sendStatus(500);
         });
 });
