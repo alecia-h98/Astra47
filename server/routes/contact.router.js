@@ -10,8 +10,8 @@ router.get('/contact/requests', (req, res) => {
 // DELETE route to delete a photo by ID
 
 // PUT route to update the status of a contact request by ID
-router.put('/contact/requests/:id', (req, res) => {
-    const queryText = `UPDATE "photos" SET "status" = $1 WHERE "id" = $2;`;
+router.put('/contact', (req, res) => {
+    const queryText = `UPDATE "contact" SET "status" = $1 WHERE "id" = $2;`;
     const queryValues = [req.body.status, req.params.id];
     pool.query(queryText, queryValues)
         .then(() => res.sendStatus(200))
