@@ -4,7 +4,8 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-
+import logo from '../../../public/images/logo.png';
+import './App.css';
 import useStore from '../../zustand/store';
 import Nav from '../Nav/Nav';
 import HomePage from '../HomePage/HomePage';
@@ -35,7 +36,7 @@ function App() {
   return (
     <>
       <header>
-        <h1 onClick={homepage} ><span ref={glitch.ref}>_Astra47</span></h1>
+        <h1 onClick={homepage} className="headerName" ><span ref={glitch.ref}>_Astra47<img className="logoHeader" src={logo} /> </span></h1>
         <Nav />
       </header>
       <main>

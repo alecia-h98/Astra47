@@ -30,6 +30,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  color: rgba(245, 239, 239, 0.75);
+
 }
 
 #root > * {
@@ -63,71 +65,11 @@ nav a {
 }
 
 nav a.active {
-  color: rgba(245, 239, 239, 0.75);
+  color: rgba(247, 15, 73, 0.832);
   text-decoration: underline;
-  text-decoration-color: #20c997;
+  text-decoration-color: rgba(3, 158, 219, 0.832);
   text-decoration-thickness: 2px;
-  transition: 0.7s;
-  .glitch {
-    position: relative;
-    color: white;
-    font-weight: bold;
-    display: inline-block;
-    font-size: 2rem; /* Adjust as needed */
-  }
-  
-  .glitch::before,
-  .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    color: #ff00c8;
-    z-index: -1;
-  }
-  
-  .glitch::before {
-    animation: glitchTop 1s infinite linear alternate-reverse;
-    top: -1px;
-  }
-  
-  .glitch::after {
-    animation: glitchBottom 1s infinite linear alternate-reverse;
-    top: 1px;
-    color: #00fff9;
-  }
-  
-  @keyframes glitchTop {
-    0% {
-      clip-path: inset(0 0 80% 0);
-      transform: translateX(-2px);
-    }
-    50% {
-      clip-path: inset(0 0 70% 0);
-      transform: translateX(2px);
-    }
-    100% {
-      clip-path: inset(0 0 80% 0);
-      transform: translateX(-2px);
-    }
-  }
-  
-  @keyframes glitchBottom {
-    0% {
-      clip-path: inset(80% 0 0 0);
-      transform: translateX(2px);
-    }
-    50% {
-      clip-path: inset(70% 0 0 0);
-      transform: translateX(-2px);
-    }
-    100% {
-      clip-path: inset(80% 0 0 0);
-      transform: translateX(2px);
-    }
-  }
-  
+  transition: 0.7s;  
 }
 
 /* Form Styles: */
