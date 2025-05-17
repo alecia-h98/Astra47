@@ -1,10 +1,20 @@
 const pool = require('../modules/pool');
 const express = require('express');
 const router = express.Router();
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
+
 
 // GET route to fetch all contact requests
-router.get('/contact/requests', (req, res) => {
-    const queryText = 'SELECT * FROM "photos" ORDER BY "id" DESC;';
+router.get('/requests', rejectUnauthenticated, (req, res) => {
+    const queryText = 'SELECT * FROM "contact" ORDER BY "id" DESC;';
+    pool.query(queryText)
+    .then(result => {
+        res.send(result.rows);
+    })
+    .catch(err => {
+        console.log('Error fetching contact requests:', err);
+        res.sendStatus(500);
+    })
 });
 
 // DELETE route to delete a photo by ID
