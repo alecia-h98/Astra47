@@ -4,12 +4,24 @@ import { useGlitch } from 'react-powerglitch';
 
 function PhotosPage() {
   const user = useStore((state) => state.user);
-  const logOut = useStore((state) => state.logOut);
+  const photos = useStore((state) => state.photos);
   const glitch = useGlitch();
+
+
 
   return (
     <>
-      <h2 className="glitch" data-text='text'>PhotosPage</h2>
+      <h2 className="glitch" data-text='text'>PhotoGallery</h2>
+      <div>
+        {photos.map((photo) => { 
+          return(
+            <div key={photo.id} className="photoContainer">
+              <img className="photo" src={photo.url} alt={photo.title} />
+              <p>{photo.description}</p>
+            </div>
+          )
+        })}
+      </div>
 
 
     </>

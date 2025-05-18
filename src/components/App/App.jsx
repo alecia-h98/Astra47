@@ -22,6 +22,7 @@ function App() {
   const user = useStore((state) => state.user);
   const fetchUser = useStore((state) => state.fetchUser);
   const fetchContactMessages = useStore((state) => state.fetchContactMessages);
+  const fetchPhotos = useStore((state) => state.fetchPhotos);
   const glitch = useGlitch();
   const navigate = useNavigate();
 
@@ -29,7 +30,8 @@ function App() {
   useEffect(() => {
     fetchUser();
     fetchContactMessages();
-  }, [fetchUser, fetchContactMessages]);
+    fetchPhotos();
+  }, [fetchUser, fetchContactMessages, fetchPhotos]);
 
   const homepage = (event) => {
     navigate(`/`)
