@@ -5,7 +5,7 @@ const createContactSlice = (set, get) => ({
     // Function to fetch contact messages
     fetchContactMessages: async () => {
         try {
-            const response = await axios.get('/api/contact');
+            const response = await axios.get('/api/contact/requests');
             set({ contactMessages: response.data });
         } catch (error) {
             console.error('Error fetching contact messages:', error);

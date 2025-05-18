@@ -21,13 +21,15 @@ import { useNavigate } from 'react-router-dom';
 function App() {
   const user = useStore((state) => state.user);
   const fetchUser = useStore((state) => state.fetchUser);
+  const fetchContactMessages = useStore((state) => state.fetchContactMessages);
   const glitch = useGlitch();
   const navigate = useNavigate();
 
 
   useEffect(() => {
     fetchUser();
-  }, [fetchUser]);
+    fetchContactMessages();
+  }, [fetchUser, fetchContactMessages]);
 
   const homepage = (event) => {
     navigate(`/`)
