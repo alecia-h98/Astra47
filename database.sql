@@ -26,6 +26,40 @@ CREATE TABLE contact (
     is_archived boolean DEFAULT false
 );
 
+CREATE TABLE "photo"(
+    "id" INTEGER NOT NULL,
+    "user_id" INTEGER NULL,
+    "cloudinary_url" VARCHAR(1500) NULL,
+    "title" VARCHAR(255) NOT NULL,
+    "description" VARCHAR(1000) NOT NULL,
+    "is_archived" BOOLEAN NOT NULL DEFAULT '0',
+    "added_day" TIMESTAMP(0) WITH
+        TIME zone NULL
+);
+ALTER TABLE
+    "photo" ADD PRIMARY KEY("id");
+ALTER TABLE
+    "photo" ADD CONSTRAINT "photo_user_id_unique" UNIQUE("user_id");
+CREATE TABLE "video"(
+    "id" INTEGER NOT NULL,
+    "user_id" INTEGER NULL,
+    "title" VARCHAR(300) NOT NULL,
+    "artist" BIGINT NOT NULL,
+    "is_archived" BOOLEAN NOT NULL DEFAULT '0',
+    "added_day" TIMESTAMP(0) WITH
+        TIME zone NOT NULL,
+        "youtube_link" VARCHAR(1000) NOT NULL
+);
+ALTER TABLE
+    "video" ADD PRIMARY KEY("id");
+ALTER TABLE
+    "video" ADD CONSTRAINT "video_user_id_unique" UNIQUE("user_id");
+ALTER TABLE
+    "photo" ADD CONSTRAINT "photo_user_id_foreign" FOREIGN KEY("user_id") REFERENCES "user"("id");
+ALTER TABLE
+    "video" ADD CONSTRAINT "video_user_id_foreign" FOREIGN KEY("user_id") REFERENCES "user"("id");
+
+
 
 -------------------------------------------------------
 --------------------------------------------------

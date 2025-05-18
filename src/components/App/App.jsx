@@ -4,7 +4,7 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-import logo from '../../../public/images/logo.png';
+import logo from '/images/logo.png';
 import './App.css';
 import useStore from '../../zustand/store';
 import Nav from '../Nav/Nav';
