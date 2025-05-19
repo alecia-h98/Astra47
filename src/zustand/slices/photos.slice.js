@@ -22,6 +22,16 @@ const createPhotosSlice = (set, get) => ({
             console.error('Error with the Zustand post photo function', err);
         }
     },
+
+    // archiving a photo
+    archivePhoto: async (photoId) => {
+        try {
+            await axios.put('/api/photos/arc', { id: photoId });
+            get().fetchPhotos();
+        } catch (error) {
+            console.error('Error archiving photo(zustand):', error);
+        }
+    },
 });
 
 export default createPhotosSlice;

@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
 // Put route to update and archive a photo
 router.put('/arc', rejectUnauthenticated, (req, res) => {
     const { id } = req.body;
-    const query = `UPDATE "photo" SET "is_archived" = true WHERE  "is_archived" = false AND "id" = $1;`;
+    const query = `UPDATE "photo" SET "is_archived" = true WHERE  "id" = $1;`;
     pool.query(query, [id])
         .then(() => res.sendStatus(200))
         .catch((err) => {
