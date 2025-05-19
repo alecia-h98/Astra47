@@ -2,6 +2,9 @@ import useStore from '../../zustand/store'
 import { useGlitch } from 'react-powerglitch';
 import React from 'react';
 import { useState } from 'react';
+import './ContactPage.css';
+import instaLogo from '/images/InBug-White.png';
+
 
 function ContactPage() {
   //this provides the glitch effect for the main page header
@@ -56,6 +59,7 @@ function ContactPage() {
         </form>
       </section>
 
+    <img className="instaLogo" src={instaLogo} alt="Instagram Logo" />
     </>
   );
 }

@@ -14,7 +14,14 @@ const createPhotosSlice = (set, get) => ({
     },
         
     // POSTing a new photo
-
+    addPhoto: async (newPhoto) => {
+        try {
+            await axios.post('/api/photos/new', newPhoto);
+            get().fetchPhotos();
+        } catch (error) {
+            console.error('Error with the Zustand post photo function', err);
+        }
+    },
 });
 
 export default createPhotosSlice;

@@ -2,7 +2,18 @@ const pool = require('../modules/pool');
 const express = require('express');
 const router = express.Router();
 const {rejectUnauthenticated} = require('../modules/authentication-middleware');
+const cloudinary = require('cloudinary').v2;
+require('dotenv').config();
 
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const multer = require('multer');
+const storage = multer.memoryStorage();
 // WORKS
 // GET route to fetch all photos
 router.get('/', (req, res) => {
@@ -27,7 +38,7 @@ router.get('/', (req, res) => {
 
 //YET TO TEST
 // POST route to add a new photo
-router.post('/', rejectUnauthenticated, (req, res) => {
+router.post('/new', rejectUnauthenticated, (req, res) => {
     let newPhoto = {...req.body};
     const query = `INSERT INTO "photo" ( "user_id", "added_day", "cloudinary_url", "title", "description")
 VALUES ($1, CURRENT_DATE, $2, $3, $4);`;
