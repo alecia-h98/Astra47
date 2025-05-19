@@ -36,7 +36,18 @@ router.get('/', (req, res) => {
 
 // PUT route to update a photo/title/desc. by ID
 
-//YET TO TEST
+// Put route to update and archive a photo
+router.put('/arc', rejectUnauthenticated, (req, res) => {
+    const { id } = req.body;
+    const query = `UPDATE "photo" SET "is_archived" = true WHERE  "is_archived" = false AND "id" = $1;`;
+    pool.query(query, [id])
+        .then(() => res.sendStatus(200))
+        .catch((err) => {
+            console.error('Error archiving photo request(BE):', err);
+            res.sendStatus(500);
+        });
+});
+
 // POST route to add a new photo
 router.post('/new', rejectUnauthenticated, (req, res) => {
     let newPhoto = {...req.body};

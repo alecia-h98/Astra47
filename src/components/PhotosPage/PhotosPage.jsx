@@ -20,6 +20,12 @@ function PhotosPage() {
   const adminPhotoPage = () => {
       navigate('/photos/new')
   }
+
+  const deletePhoto = (id) => {
+    console.log('Delete photo with id:', id);
+    // Call the delete photo function from the store
+    useStore.getState().deletePhoto(id);
+  }
   
 
   return (
@@ -42,7 +48,7 @@ function PhotosPage() {
                   <img src={photo.cloudinary_url} alt={photo.title} className="gallery-img" />
                   { // User is logged in, render these links:
                   user.id && (
-                  <button onClick={adminPhotoPage} >Delete</button>
+                  <button onClick={deletePhoto} >Delete</button>
                   )}
               {/* <img className="photo-img" src={photo.cloudinary_url} alt={photo.title} /> */}
               {/* <p>{photo.description}</p> */}
