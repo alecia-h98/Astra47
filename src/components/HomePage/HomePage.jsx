@@ -5,7 +5,9 @@ function HomePage() {
   const user = useStore((state) => state.user);
   const logOut = useStore((state) => state.logOut);
 
-
+  //big photo or video when the page loads
+//Get a quote link to the contact page
+//about bio 
 
 
   return (

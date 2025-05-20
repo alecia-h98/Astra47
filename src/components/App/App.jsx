@@ -9,6 +9,7 @@ import './App.css';
 import useStore from '../../zustand/store';
 import Nav from '../Nav/Nav';
 import HomePage from '../HomePage/HomePage';
+import AppLayout from '../AppLayout/AppLayout';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import PhotosPage from '../PhotosPage/PhotosPage';
@@ -34,6 +35,8 @@ function App() {
     fetchPhotos();
   }, [fetchUser, fetchContactMessages, fetchPhotos]);
 
+
+
   const homepage = (event) => {
     navigate(`/`)
   };
@@ -45,13 +48,17 @@ function App() {
         <Nav />
       </header>
       <main>
+        
+      
         <Routes>
-          <Route 
+          {/* <Route 
             exact path="/"
             element={
                 <HomePage /> // Render HomePage for authenticated user.
             }
-          />
+          /> */}
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<HomePage />}/>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/photos" element= {<PhotosPage />} />
@@ -93,6 +100,7 @@ function App() {
               </>
             }
           />
+          </Route>
           <Route
             path="*"
             element={

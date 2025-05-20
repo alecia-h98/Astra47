@@ -1,7 +1,9 @@
+import { useState, useEffect } from 'react';
 import useStore from '../../zustand/store'
 import { useGlitch } from 'react-powerglitch';
 import { useNavigate } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import './PhotosPage.css';
 
 function PhotosPage() {
@@ -9,6 +11,7 @@ function PhotosPage() {
   const photos = useStore((state) => state.photos);
   const archivePhoto = useStore((state) => state.archivePhoto);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   const breakpointColumnsObj = {
     default: 3,
@@ -16,6 +19,16 @@ function PhotosPage() {
     700: 1
   };
 
+  useEffect(() => {
+    // Simulate loading or wait for store data
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // Adjust based on your actual data loading
+
+    return () => clearTimeout(timeout);
+  }, [photos]);
+
+  if (loading) return <LoadingScreen />;
 
   const adminPhotoPage = () => {
       navigate('/photos/new')

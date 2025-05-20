@@ -3,7 +3,6 @@ import useStore from '../../zustand/store';
 import './Nav.css';
 import { useNavigate } from 'react-router-dom';
 
-
 function Nav() {
   const user = useStore((store) => store.user);
   const logOut = useStore((state) => state.logOut);
@@ -11,24 +10,15 @@ function Nav() {
 
   const logOutFunction = () => {
     logOut();
-    navigate('/#/');
+    navigate('/');
   }
+
+
 
   return (
     <nav>
+
       <ul>
-      {/* { // User is not logged in, render these links:
-        !user.id && (
-          <>
-            <li className="glitch" data-text='text'>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li className="glitch" data-text='text'>
-              <NavLink to="/registration">Register</NavLink>
-            </li>
-          </>
-        )
-      } */}
       { // User is logged in, render these links:
         user.id && (
           <>
