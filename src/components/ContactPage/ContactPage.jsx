@@ -36,6 +36,8 @@ function ContactPage() {
 
     //I am debating whether or not to add a message sent confirmation or a redirect to a new page
   }
+  
+  // add a loop of the reviews at the bottom of the page
 
 
   return (

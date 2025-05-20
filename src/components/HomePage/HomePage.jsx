@@ -8,7 +8,7 @@ function HomePage() {
   //big photo or video when the page loads
 //Get a quote link to the contact page
 //about bio 
-
+//leave a review questionaire at the bottom of the page
 
   return (
     <>
