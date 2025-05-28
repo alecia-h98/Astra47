@@ -15,6 +15,8 @@ function AddPhotoPage() {
   const [titleInput, setTitleInput] = useState('');
   const [descriptionInput, setDescriptionInput] = useState('');
 
+
+  //There is a bug that is uploading two new entries to the database. One with the correct cloudinary upload and one that is blank. The backend function is working correctly. Although whenever you click the upload button, it is creating a new entry in the database. I think it is because of the useEffect in the UploadWidget component. I will try to fix this later. For now, I will just comment out the useEffect and see if that fixes it.
   
 
 
@@ -58,12 +60,12 @@ function AddPhotoPage() {
     <>
       <h2 className="glitch" data-text='text'>AddPhoto:</h2>
       <section>
-        <form id="addPhotoForm" onSubmit={formPhotoHandler}>
+        <form id="form" onSubmit={formPhotoHandler}>
 
             <UploadWidget setPhotoInput={setPhotoInput}/>
             <label>Image:</label>
             <input placeholder={photoInput} />
-            {photoInput && <img id="uploadedPhoto" src={photoInput} height={200} width={200} />}
+            {photoInput && <img id="uploadedPhoto" src={photoInput} height={auto} width={200} />}
 
             <label>Title:</label>
             <input type="text" placeholder="(optional)" value={titleInput} onChange={(event) => setTitleInput(event.target.value)} />
@@ -71,7 +73,7 @@ function AddPhotoPage() {
             <label>Description:</label>
             <input type="text" placeholder="(optional)" value={descriptionInput} onChange={(event) => setDescriptionInput(event.target.value)} />
 
-            <button type="submit">Add photo</button>
+            <button type='submit'>Add photo</button>
 
         </form>
       </section>

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import './MessageRequestsPage.css';
+// import { Form } from 'react-bootstrap';
 
 function MessageRequestsPage() {
   const user = useStore((state) => state.user);
@@ -12,7 +13,8 @@ function MessageRequestsPage() {
   const fetchContactMessages = useStore((state) => state.fetchContactMessages);
   const contactMessages = useStore((state) => state.contactMessages);
   const params = useParams();
-  
+  // const [showArchived, setShowArchived] = useState(false);
+
   useEffect(() => {
     fetchContactMessages();
   },[fetchContactMessages]);
@@ -29,6 +31,13 @@ function MessageRequestsPage() {
               <h4>{message.name}</h4>
               <p>{message.email}</p>
               <p>{message.message}</p>
+              {/* <Form.Check
+              type="switch"
+              id="archive-switch"
+              label={showArchived ? "🔴 Not responded" : "🟢 Responded"}
+              checked={showArchived}
+              onChange={() => setShowArchived(!showArchived)}
+              /> */}
             </div>
           )
         })}

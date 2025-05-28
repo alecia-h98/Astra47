@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const createPhotosSlice = (set, get) => ({
-
     photos: [],
+    randomPhoto: null,
     // GETting all of the photos
     fetchPhotos: async () => {
         try {
@@ -16,6 +16,7 @@ const createPhotosSlice = (set, get) => ({
     // POSTing a new photo
     addPhoto: async (newPhoto) => {
         try {
+            console.log('newPhoto-zustand', newPhoto);
             await axios.post('/api/photos/new', newPhoto);
             get().fetchPhotos();
         } catch (error) {
@@ -30,6 +31,14 @@ const createPhotosSlice = (set, get) => ({
             get().fetchPhotos();
         } catch (error) {
             console.error('Error archiving photo(zustand):', error);
+        }
+    },
+
+    getRandomPhoto: () => {
+        const photo = get().photos;
+        if (photo.length > 0) {
+            const randomIndex = Math.floor(Math.random() * photo.length);
+            set({ randomPhoto: photo[randomIndex] });
         }
     },
 });
