@@ -1,6 +1,7 @@
 import useStore from '../../zustand/store'
 import { use, useEffect } from 'react';
 import { Image } from 'react-bootstrap';
+import './HomePage.css';
 
 function HomePage() {
   const user = useStore((state) => state.user);
@@ -28,6 +29,7 @@ if (!randomPhoto) {
 
   return (
     <>
+    <div className="background">
       <h2 className="glitch" data-text='text'>HomePage</h2>
       {user.id ? (
         <>
@@ -38,7 +40,8 @@ if (!randomPhoto) {
         </>) : (<p>Welcome to Astra47!</p>)}
         <div>
           {/* The photos for this need to be updated to only fill the size of the homepage */}
-      <Image src={randomPhoto.cloudinary_url} alt="photo" fluid />
+      {/* <Image src={randomPhoto.cloudinary_url} alt="photo" fluid /> */}
+      </div>
       </div>
     </>
   );

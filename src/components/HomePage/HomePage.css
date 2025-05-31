@@ -1,0 +1,9 @@
+.background{
+    background-image: url('/images/DSC_0019.JPG');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
