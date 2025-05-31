@@ -44,6 +44,7 @@ function App() {
   return (
     <>
       <header>
+        
         <h1 onClick={homepage} className="headerName" ><span ref={glitch.ref}>_Astra47<img className="logoHeader" src={logo} /> </span></h1>
         <Nav />
       </header>
