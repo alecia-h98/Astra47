@@ -2,6 +2,9 @@ import useStore from '../../zustand/store'
 import { use, useEffect } from 'react';
 import { Image } from 'react-bootstrap';
 import './HomePage.css';
+import { useGlitch } from 'react-powerglitch';
+import logo from '/images/logo.png';
+
 
 function HomePage() {
   const user = useStore((state) => state.user);
@@ -9,6 +12,7 @@ function HomePage() {
   const getRandomPhoto = useStore((state) => state.getRandomPhoto);
   const randomPhoto = useStore((state) => state.randomPhoto);
   const fetchPhotos = useStore((state) => state.fetchPhotos);
+  const glitch = useGlitch();
 
   useEffect(() => {
     async function loadPhotos() {
@@ -18,11 +22,11 @@ function HomePage() {
     loadPhotos();
   }, [fetchPhotos, getRandomPhoto]);
 
-  //big photo or video when the page loads
-  //have an about that goes over what he specializes in
+//have an about that goes over what he specializes in
 //Get a quote link to the contact page
 //about bio 
 //leave a review questionaire at the bottom of the page
+
 if (!randomPhoto) {
   return <div className="text-center mt-5">Loading...</div>;
 }
@@ -30,17 +34,14 @@ if (!randomPhoto) {
   return (
     <>
     <div className="background">
-      <h2 className="glitch" data-text='text'>HomePage</h2>
       {user.id ? (
         <>
         <p>Welcome back {user.username}!</p>
-        <button onClick={logOut}>
+        <button  onClick={logOut}>
           Log Out
         </button>
-        </>) : (<p>Welcome to Astra47!</p>)}
+        </>) : ( <h1 className='titleHomepage'><span ref={glitch.ref}>_Astra47</span></h1>)}
         <div>
-          {/* The photos for this need to be updated to only fill the size of the homepage */}
-      {/* <Image src={randomPhoto.cloudinary_url} alt="photo" fluid /> */}
       </div>
       </div>
     </>

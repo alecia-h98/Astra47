@@ -4,6 +4,8 @@ import React from 'react';
 import { useState } from 'react';
 import './ContactPage.css';
 import instaLogo from '/images/InBug-White.png';
+import mainPhoto from '/images/Prairie.JPG';
+import { Container, Row, Col } from 'react-bootstrap';
 
 
 function ContactPage() {
@@ -42,7 +44,13 @@ function ContactPage() {
 
   return (
     <>
-      <h2 className="glitch" data-text='text'>ContactMe:</h2>
+      <h2 className="glitch" id="contactHeader" data-text='text'>ContactMe:</h2>
+      <br/>
+      <Row>
+        <Col>
+        <img src={mainPhoto} alt="photo" className="contactPhoto" />
+        </Col>
+        <Col>
       <section className='contactForm'>
         <h4>Let's talk business!</h4>
         <form id="contact-form" onSubmit={formHandler}>
@@ -54,13 +62,15 @@ function ContactPage() {
           
           <label>Message:</label>
           <textarea type="textarea" id="message" placeholder="Tell me what type of services you're interested in. Thank you!" value={messageInput} onChange={(e) => setMessageInput(e.target.value)} required></textarea>
-          
           <br/>
 
           <button type="submit">Send</button>
         </form>
       </section>
+        </Col>
+      </Row>
 
+    <br/>
     <img className="instaLogo" src={instaLogo} alt="Instagram Logo" />
     </>
   );

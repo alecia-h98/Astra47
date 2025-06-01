@@ -19,6 +19,7 @@ import MessageRequestsPage from '../MessageRequestsPage/MessageRequestsPage';
 import AddPhotoPage from '../AddPhotoPage/AddPhotoPage';
 import { useGlitch } from 'react-powerglitch';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function App() {
   const user = useStore((state) => state.user);
@@ -27,6 +28,7 @@ function App() {
   const fetchPhotos = useStore((state) => state.fetchPhotos);
   const glitch = useGlitch();
   const navigate = useNavigate();
+  const location = useLocation();
 
 
   useEffect(() => {
@@ -35,17 +37,21 @@ function App() {
     fetchPhotos();
   }, [fetchUser, fetchContactMessages, fetchPhotos]);
 
-
+  const isHome = location.pathname === '/';
 
   const homepage = (event) => {
     navigate(`/`)
   };
 
+  const contactButton = (event) => {
+    navigate(`/contact`);
+  }
+
   return (
     <>
       <header>
         
-        <h1 onClick={homepage} className="headerName" ><span ref={glitch.ref}>_Astra47<img className="logoHeader" src={logo} /> </span></h1>
+        {!isHome ? (<h1 onClick={homepage} className="headerName" ><span ref={glitch.ref}>_Astra47<img className="logoHeader" src={logo} /> </span></h1>) : ( <img className="logoHeader" src={logo} />)}
         <Nav />
       </header>
       <main>
@@ -111,6 +117,9 @@ function App() {
         </Routes>
       </main>
       <footer>
+        <a href="https://www.instagram.com/_astra47/" target="_blank">Instragram</a>
+        <p onClick={contactButton}>Contact</p>
+        <p>Made with ❤️ by _Astra47</p>
         <p>Copyright © {new Date().getFullYear()}</p>
       </footer>
     </>

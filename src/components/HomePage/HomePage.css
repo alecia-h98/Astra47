@@ -1,9 +1,25 @@
 .background{
-    background-image: url('/images/DSC_0019.JPG');
+    background-image: url(DSC_0019.JPG);
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;    
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.titleHomepage{
+    /* color: white; */
+    font-size: 350px;
+    text-align: left;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.logoHome{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

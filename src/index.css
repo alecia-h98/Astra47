@@ -42,11 +42,15 @@ main {
   flex-grow: 1;
 }
 
-header, footer {
+header {
   display: flex;
   flex-basis: 6em;
   align-items: center;
   justify-content: space-between;
+}
+
+footer {
+  font-size: 10px;
 }
 
 /* Nav Styles: */

@@ -3,3 +3,19 @@
     height: 35px;
     margin: 0 10px;
 }
+
+.contactPhoto{
+    width: 500px;
+}
+
+.contactForm{
+    display: inline-block;
+    flex-direction: column;
+    /* justify-content: center; */
+    margin-left: 150px;
+    /* margin-bottom: 50px; */
+}
+
+#contactHeader{
+    font-size: 50px;
+}
