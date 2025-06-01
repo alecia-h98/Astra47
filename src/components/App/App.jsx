@@ -17,6 +17,8 @@ import VideosPage from '../VideosPage/VideosPage';
 import ContactPage from '../ContactPage/ContactPage';
 import MessageRequestsPage from '../MessageRequestsPage/MessageRequestsPage';
 import AddPhotoPage from '../AddPhotoPage/AddPhotoPage';
+import InstaReelsPage from '../InstaReelsPage/InstaReelsPage';
+import YoutubeVideosPage from '../YoutubeVideosPage/YoutubeVideosPage';
 import { useGlitch } from 'react-powerglitch';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -73,6 +75,8 @@ function App() {
           <Route path="/contact" element= {<ContactPage />} />
           <Route path="/contact/requests" element= {<MessageRequestsPage />} />
           <Route path="/photos/new" element= {<AddPhotoPage />} />
+          <Route path="/videos/instareels" element={<InstaReelsPage />} />
+          <Route path="/videos/youtube" element={<YoutubeVideosPage />} />
 
           <Route 
             exact path="/about"
