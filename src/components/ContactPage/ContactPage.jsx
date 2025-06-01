@@ -5,7 +5,9 @@ import { useState } from 'react';
 import './ContactPage.css';
 import instaLogo from '/images/InBug-White.png';
 import mainPhoto from '/images/Prairie.JPG';
-import { Container, Row, Col } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 function ContactPage() {
@@ -46,11 +48,12 @@ function ContactPage() {
     <>
       <h2 className="glitch" id="contactHeader" data-text='text'>ContactMe:</h2>
       <br/>
+      <Container>
       <Row>
-        <Col>
+        <Col xs={6}>
         <img src={mainPhoto} alt="photo" className="contactPhoto" />
         </Col>
-        <Col>
+        <Col ex={6}>
       <section className='contactForm'>
         <h4>Let's talk business!</h4>
         <form id="contact-form" onSubmit={formHandler}>
@@ -69,9 +72,7 @@ function ContactPage() {
       </section>
         </Col>
       </Row>
-
-    <br/>
-    <img className="instaLogo" src={instaLogo} alt="Instagram Logo" />
+      </Container>
     </>
   );
 }
