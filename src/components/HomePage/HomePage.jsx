@@ -36,10 +36,14 @@ if (!randomPhoto) {
     <div className="background">
       {user.id ? (
         <>
-        <p>Welcome back {user.username}!</p>
-        <button  onClick={logOut}>
+        <div className="adminHomepage">
+          <span ref={glitch.ref}>
+        <p>Welcome back!</p>
+        </span>
+        {/* <button  onClick={logOut}>
           Log Out
-        </button>
+        </button> */}
+        </div>
         </>) : ( <h1 className='titleHomepage'><span ref={glitch.ref}>_Astra47</span></h1>)}
         <div>
       </div>
