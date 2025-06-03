@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import useStore from '../../zustand/store';
 import { useGlitch } from 'react-powerglitch';
 import { useNavigate } from 'react-router-dom';
-
+import './LoginPage.css';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -34,8 +34,9 @@ function LoginPage() {
 
   return (
     <>
-      <h2 className="glitch" data-text='text'>Login Page</h2>
-      <form onSubmit={handleLogIn}>
+      <form onSubmit={handleLogIn} className='loginForm'>
+        <h2 className="glitch" data-text='text'>Login Page</h2>
+
         <label htmlFor="username">Username:</label>
         <input
           type="text"
