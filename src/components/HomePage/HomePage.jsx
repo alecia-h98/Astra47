@@ -22,6 +22,8 @@ function HomePage() {
     loadPhotos();
   }, [fetchPhotos, getRandomPhoto]);
 
+  //*****ADD A POP UP ALERT IF THERE ARE NEW MESSAGES THAT THE ADMIN HASN'T RESPONDED TO ON THE HOMEPAGE*****//
+  
 //have an about that goes over what he specializes in
 //Get a quote link to the contact page
 //about bio 
